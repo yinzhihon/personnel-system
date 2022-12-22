@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.personnel.dao.PersonDao">
+
+    <resultMap id="personResultMap" type="Person">
+        <result column="edu_level" property="eduLevelId"/>
+        <result column="edu_level_name" property="eduLevelName"/>
+        <result column="department" property="departmentId"/>
+        <result column="department_name" property="departmentName"/>
+        <result column="job" property="jobId"/>
+        <result column="job_name" property="jobName"/>
+    </resultMap>
+
+    <update id="update">
+        update
+            t_person
+        set
+            passwd = #{passwd}, authority = #{authority}, name = #{name}, sex = #{sex}, birthday = #{birthday},
+            department = #{departmentId}, job = #{jobId}, edu_level = #{eduLevelId}, specialty = #{specialty},
+            address = #{address}, tel = #{tel}, email = #{email}, state = #{state}, remake = #{remake}
+        where
+            id = #{id};
+    </update>
+
+    <update id="updateDynamic">
+        update t_person
+        <set>
+            <if test="departmentId != null and departmentId != ''">department = #{departmentId},</if>
+            <if test="jobId != null and jobId != ''">job = #{jobId},</if>
+            <if test="eduLevelId != null and eduLevelId != ''">edu_level = #{eduLevelId},</if>
+
+            <if test="passwd != null and passwd != ''">passwd = #{passwd},</if>
+            <if test="authority != null and authority != ''">authority = #{authority},</if>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="sex != null and sex != ''">sex = #{sex},</if>
+            <if test="birthday != null and birthday != ''">birthday = #{birthday}</if>
+            <if test="specialty != null and specialty != ''">specialty = #{specialty},</if>
+            <if test="address != null and address != ''">address = #{address},</if>
+            <if test="tel != null and tel != ''">tel = #{tel},</if>
+            <if test="email != null and email != ''">email = #{email},</if>
+            <if test="state != null and state != ''">state = #{state},</if>
+            <if test="remake != null and remake != ''">remake = #{remake}</if>
+        </set>
+        where id = #{id};
+    </update>
+
+    <select id="selectAll" resultMap="personResultMap">
+        select
+            p.id,p.name,p.passwd,p.sex,d.name department_name,e.description edu_level_name,j.description job_name ,p.authority,p.address,p.birthday,p.email,p.remake,p.specialty,p.tel,p.state
+        from
+            t_person p, t_department d, t_job j, t_edu_level e
+        where p.department = d.id and p.job = j.code and p.edu_level = e.code;
+    </select>
+
+    <select id="selectById"  resultMap="personResultMap">
+        select
+            p.id,p.name,p.passwd,p.sex,d.name department_name,e.description edu_level_name,j.description job_name ,p.authority,p.address,p.birthday,p.email,p.remake,p.specialty,p.tel,p.state
+        from
+            t_person p, t_department d, t_job j, t_edu_level e
+        where
+            p.department = d.id and p.job = j.code and p.edu_level = e.code
+            and p.id = #{id};
+    </select>
+
+    <select id="selectByCondition" resultMap="personResultMap">
+        select
+          p.id,p.name,p.passwd,p.sex,d.name department_name,e.description edu_level_name,j.description job_name ,p.authority,p.address,p.birthday,p.email,p.remake,p.specialty,p.tel,p.state
+        from
+          t_person p, t_department d, t_job j, t_edu_level e
+        <where>
+            p.department = d.id and p.job = j.code and p.edu_level = e.code
+            <if test="id != null and id != ''">and p.id = {id}</if>
+            <if test="name != null and name != ''">and p.name = #{name}</if>
+            <if test="sex != null and sex != ''">and sex = #{sex}</if>
+            <if test="departmentName != null and departmentName != ''">and d.name = #{departmentName}</if>
+            <if test="jobName != null and jobName != ''">and j.description = #{jobName}</if>
+            <if test="remake != null and remake != ''">and remake = #{remake}</if>
+
+            <if test="passwd != null and passwd != ''">and passwd = #{passwd}</if>
+            <if test="authority != null and authority != ''">and authority = #{authority}</if>
+            <if test="birthday != null and birthday != ''">and birthday = #{birthday}</if>
+            <if test="eduLevelName != null and eduLevelName != ''">and e.description = #{eduLevelName}</if>
+            <if test="specialty != null and specialty != ''">and specialty = #{specialty}</if>
+            <if test="address != null and address != ''">and address = #{address}</if>
+            <if test="tel != null and tel != ''">and tel = #{tel}</if>
+            <if test="email != null and email != ''">and email = #{email}</if>
+            <if test="state != null and state != ''">and state = #{state}</if>
+        </where>
+    </select>
+
+    <select id="selectCountCondition" resultType="integer">
+        select count(*) from
+        t_person p, t_department d, t_job j, t_edu_level e
+        <where>
+            p.department = d.id and p.job = j.code and p.edu_level = e.code
+            <if test="id != null and id != ''">and p.id = {id}</if>
+            <if test="name != null and name != ''">and p.name = #{name}</if>
+            <if test="sex != null and sex != ''">and sex = #{sex}</if>
+            <if test="departmentName != null and departmentName != ''">and d.name = #{departmentName}</if>
+            <if test="jobId != null and jobId != ''">and p.job = #{jobId}</if>
+            <if test="jobName != null and jobName != ''">and j.description = #{jobName}</if>
+            <if test="remake != null and remake != ''">and remake = #{remake}</if>
+
+            <if test="passwd != null and passwd != ''">and passwd = #{passwd}</if>
+            <if test="authority != null and authority != ''">and authority = #{authority}</if>
+            <if test="birthday != null and birthday != ''">and birthday = #{birthday}</if>
+            <if test="eduLevelName != null and eduLevelName != ''">and e.description = #{eduLevelName}</if>
+            <if test="specialty != null and specialty != ''">and specialty = #{specialty}</if>
+            <if test="address != null and address != ''">and address = #{address}</if>
+            <if test="tel != null and tel != ''">and tel = #{tel}</if>
+            <if test="email != null and email != ''">and email = #{email}</if>
+            <if test="state != null and state != ''">and state = #{state}</if>
+        </where>
+    </select>
+
+
+    <select id="selectPageCondition" resultMap="personResultMap">
+        select
+        p.id,p.name,p.passwd,p.sex,d.name department_name,e.description edu_level_name,j.description job_name ,p.authority,p.address,p.birthday,p.email,p.remake,p.specialty,p.tel,p.state
+        from
+        t_person p, t_department d, t_job j, t_edu_level e
+        <where>
+            p.department = d.id and p.job = j.code and p.edu_level = e.code
+            <if test="per.id != null and per.id != ''">and p.id like concat('%',#{per.id},'%')</if>
+            <if test="per.name != null and per.name != ''">and p.name like concat('%', #{per.name}, '%')</if>
+            <if test="per.sex != null and per.sex != ''">and sex like concat('%', #{per.sex}, '%')</if>
+            <if test="per.departmentName != null and per.departmentName != ''">and d.name like concat('%', #{per.departmentName}, '%')</if>
+            <if test="per.jobName != null and per.jobName != ''">and j.description = #{per.jobName}</if>
+            <if test="per.remake != null and per.remake != ''">and remake like concat('%', #{per.remake}, '%')</if>
+
+            <if test="per.passwd != null and per.passwd != ''">and passwd like concat('%', #{per.passwd}, '%')</if>
+            <if test="per.authority != null and per.authority != ''">and authority like concat('%', #{per.authority}, '%')</if>
+            <if test="per.birthday != null and per.birthday != ''">and birthday like concat('%', #{per.birthday}, '%')</if>
+            <if test="per.eduLevelName != null and per.eduLevelName != ''">and e.description like concat('%', #{per.eduLevelName}, '%')</if>
+            <if test="per.specialty != null and per.specialty != ''">and specialty like concat('%', #{vspecialty}, '%')</if>
+            <if test="per.address != null and per.address != ''">and address like concat('%', #{vaddress}, '%')</if>
+            <if test="per.tel != null and per.tel != ''">and tel like concat('%', #{per.tel}, '%')</if>
+            <if test="per.email != null and per.email != ''">and email like concat('%', #{per.email}, '%')</if>
+            <if test="per.state != null and per.state != ''">and state like concat('%', #{per.state}, '%')</if>
+        </where>
+        limit #{begin}, #{size}
+    </select>
+
+    <select id="selectTotalCountCondition" resultType="integer">
+        select count(*) from
+          t_person p, t_department d, t_job j, t_edu_level e
+        <where>
+            p.department = d.id and p.job = j.code and p.edu_level = e.code
+            <if test="id != null and id != ''">and p.id like concat('%',#{id},'%')</if>
+            <if test="name != null and name != ''">and p.name like concat('%', #{name}, '%')</if>
+            <if test="sex != null and sex != ''">and sex like concat('%', #{sex}, '%')</if>
+            <if test="departmentName != null and departmentName != ''">and d.name like concat('%', #{departmentName}, '%')</if>
+            <if test="jobName != null and jobName != ''">and j.description = #{jobName}</if>
+            <if test="remake != null and remake != ''">and remake like concat('%', #{remake}, '%')</if>
+
+            <if test="passwd != null and passwd != ''">and passwd like concat('%', #{passwd}, '%')</if>
+            <if test="authority != null and authority != ''">and authority like concat('%', #{authority}, '%')</if>
+            <if test="birthday != null and birthday != ''">and birthday like concat('%', #{birthday}, '%')</if>
+            <if test="eduLevelName != null and eduLevelName != ''">and e.description like concat('%', #{eduLevelName}, '%')</if>
+            <if test="specialty != null and specialty != ''">and specialty like concat('%', #{specialty}, '%')</if>
+            <if test="address != null and address != ''">and address like concat('%', #{address}, '%')</if>
+            <if test="tel != null and tel != ''">and tel like concat('%', #{tel}, '%')</if>
+            <if test="email != null and email != ''">and email like concat('%', #{email}, '%')</if>
+            <if test="state != null and state != ''">and state like concat('%', #{state}, '%')</if>
+        </where>
+    </select>
+
+    <!-- 设置添加的主键可以获得 useGeneratedKeys="true" keyProperty="id" -->
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into t_person values (null, #{passwd}, #{authority} ,#{name}, #{sex}, #{birthday},
+                                     #{departmentId}, #{jobId}, #{eduLevelId}, #{specialty}, #{address},
+                                     #{tel}, #{email}, #{state}, #{remake});
+    </insert>
+
+</mapper>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane fx:id="personMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="779.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personnel.controller.DepartmentController">
+    <center>
+        <AnchorPane prefHeight="779.0" prefWidth="1161.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane layoutX="111.0" layoutY="48.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #81C0C0; -fx-background-radius: 10px;">
+               <children>
+                  <Pane layoutX="21.0" layoutY="14.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #F0F0F0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label layoutX="25.0" layoutY="13.0" text="部门名" />
+                        <Label fx:id="departmentName1" layoutX="181.0" layoutY="13.0" text="研发部" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="21.0" layoutY="85.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label layoutX="29.0" layoutY="16.0" text="部门编号" />
+                        <Label fx:id="departmentId1" layoutX="181.0" layoutY="13.0" text="1" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="20.0" layoutY="227.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #D0D0D0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label fx:id="departmentMsg1" layoutX="181.0" layoutY="13.0" text="产品研发" />
+                        <Label layoutX="29.0" layoutY="13.0" text="部门信息" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="21.0" layoutY="159.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label fx:id="departmentMan1" layoutX="181.0" layoutY="13.0" text="无" />
+                        <Label layoutX="27.0" layoutY="13.0" text="部门经理" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="619.0" layoutY="48.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #FF9224; -fx-background-radius: 10px;">
+               <children>
+                  <Pane layoutX="21.0" layoutY="14.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #F0F0F0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label layoutX="25.0" layoutY="13.0" text="部门名" />
+                        <Label fx:id="departmentName2" layoutX="181.0" layoutY="13.0" text="运营部" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="21.0" layoutY="85.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label layoutX="29.0" layoutY="16.0" text="部门编号" />
+                        <Label fx:id="departmentId2" layoutX="181.0" layoutY="13.0" text="2" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="20.0" layoutY="227.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #D0D0D0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label fx:id="departmentMsg2" layoutX="181.0" layoutY="13.0" text="产品运营" />
+                        <Label layoutX="29.0" layoutY="13.0" text="部门信息" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="21.0" layoutY="159.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label fx:id="departmentMan2" layoutX="181.0" layoutY="13.0" text="无" />
+                        <Label layoutX="27.0" layoutY="13.0" text="部门经理" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="111.0" layoutY="397.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #84C1FF; -fx-background-radius: 10px;">
+               <children>
+                  <Pane layoutX="21.0" layoutY="14.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #F0F0F0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label layoutX="25.0" layoutY="13.0" text="部门名" />
+                        <Label fx:id="departmentName3" layoutX="181.0" layoutY="13.0" text="财务部" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="21.0" layoutY="85.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label layoutX="29.0" layoutY="16.0" text="部门编号" />
+                        <Label fx:id="departmentId3" layoutX="181.0" layoutY="13.0" text="3" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="20.0" layoutY="227.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #D0D0D0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label fx:id="departmentMsg3" layoutX="181.0" layoutY="13.0" text="财务管理" />
+                        <Label layoutX="29.0" layoutY="13.0" text="部门信息" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="21.0" layoutY="159.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label fx:id="departmentMan3" layoutX="181.0" layoutY="13.0" text="无" />
+                        <Label layoutX="27.0" layoutY="13.0" text="部门经理" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="619.0" layoutY="397.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #00BB00; -fx-background-radius: 10px;">
+               <children>
+                  <Pane layoutX="21.0" layoutY="14.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #F0F0F0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label layoutX="25.0" layoutY="13.0" text="部门名" />
+                        <Label fx:id="departmentName4" layoutX="181.0" layoutY="13.0" text="人事部" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="21.0" layoutY="85.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label layoutX="29.0" layoutY="16.0" text="部门编号" />
+                        <Label fx:id="departmentId4" layoutX="181.0" layoutY="13.0" text="4" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="20.0" layoutY="227.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #D0D0D0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label fx:id="departmentMsg4" layoutX="181.0" layoutY="13.0" text="人事管理" />
+                        <Label layoutX="29.0" layoutY="13.0" text="部门信息" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="21.0" layoutY="159.0" prefHeight="51.0" prefWidth="361.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 18px;">
+                     <children>
+                        <Label fx:id="departmentMan4" layoutX="181.0" layoutY="13.0" text="无" />
+                        <Label layoutX="27.0" layoutY="13.0" text="部门经理" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Button layoutX="1078.0" layoutY="14.0" mnemonicParsing="false" onAction="#refresh" prefHeight="30.0" prefWidth="56.0" style="-fx-background-color: #6C6C6C;" text="刷新" textFill="WHITE" />
+         </children></AnchorPane>
+    </center>
+</BorderPane>

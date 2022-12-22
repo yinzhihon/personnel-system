@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.personnel.dao.PersonnelDao">
+
+    <resultMap id="personnelResultMap" type="Personnel">
+        <result column="person" property="personId"/>
+        <result column="change" property="changeCode"/>
+    </resultMap>
+
+    <select id="selectPageCondition" resultMap="personnelResultMap">
+        select
+            pl.id ,pl.person, p.name as personName, pl.change, pc.description as changeName, pl.description
+        from
+            t_personnel pl, t_person p, t_personnel_change pc
+        <where>
+            pl.person = p.id and pl.change = pc.code
+            <if test="per.id != null and per.id != ''">and pl.id like concat('%',#{per.id},'%')</if>
+            <if test="per.personId != null and per.personId != ''">and pl.person like concat('%', #{per.personId}, '%')</if>
+            <if test="per.personName != null and per.personName != ''">and p.name like concat('%', #{per.personName}, '%')</if>
+            <if test="per.changeCode != null and per.changeCode != ''">and pl.change like concat('%', #{per.changeCode}, '%')</if>
+            <if test="per.changeName != null and per.changeName != ''">and  pc.description like concat('%', #{per.changeName}, '%')</if>
+            <if test="per.description != null and per.description != ''">and pl.description like concat('%', #{per.description}, '%')</if>
+        </where>
+        limit #{begin}, #{size}
+    </select>
+
+    <select id="selectTotalCountCondition" resultType="integer">
+        select count(*) from
+            t_personnel pl, t_person p, t_personnel_change pc
+        <where>
+            pl.person = p.id and pl.change = pc.code
+            <if test="id != null and id != ''">and pl.id like concat('%',#{id},'%')</if>
+            <if test="personId != null and personId != ''">and pl.person like concat('%', #{personId}, '%')</if>
+            <if test="personName != null and personName != ''">and p.name like concat('%', #{personName}, '%')</if>
+            <if test="changeCode != null and changeCode != ''">and pl.change like concat('%', #{changeCode}, '%')</if>
+            <if test="changeName != null and changeName != ''">and  pc.description like concat('%', #{changeName}, '%')</if>
+            <if test="description != null and description != ''">and pl.description like concat('%', #{description}, '%')</if>
+        </where>
+    </select>
+
+    <update id="update">
+        update
+            t_personnel
+        set
+            person = #{personId}, `change` = #{changeCode} , description = #{description}
+        where
+            id = #{id};
+    </update>
+
+</mapper>

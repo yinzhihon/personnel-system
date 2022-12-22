@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="779.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="35.0" layoutY="126.0" prefHeight="48.0" prefWidth="151.0" text="人事管理系统">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="22.0" prefHeight="104.0" prefWidth="337.0" text="欢迎访问">
+         <font>
+            <Font size="81.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="536.0" fitWidth="462.0" layoutX="665.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/fish_magic.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

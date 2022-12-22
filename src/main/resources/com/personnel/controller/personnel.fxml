@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="personnelMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="779.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personnel.controller.PersonnelController">
+   <bottom>
+      <AnchorPane prefHeight="68.0" prefWidth="1161.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="363.0" layoutY="29.0" text="跳转到" />
+            <Label layoutX="474.0" layoutY="30.0" text="页" />
+            <TextField fx:id="currentPage" layoutX="418.0" layoutY="27.0" minHeight="20.0" prefHeight="25.0" prefWidth="45.0" />
+            <TextField fx:id="totalCount" disable="true" layoutX="247.0" layoutY="28.0" minHeight="20.0" prefHeight="25.0" prefWidth="45.0" />
+            <Label layoutX="301.0" layoutY="29.0" text="条记录">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="222.0" layoutY="30.0" text="共">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="pageSize" layoutX="515.0" layoutY="24.0" minHeight="20.0" prefHeight="30.0" prefWidth="84.0" />
+            <Pagination fx:id="pagination" layoutX="611.0" layoutY="22.0" minHeight="20.0" minWidth="100.0" nodeOrientation="LEFT_TO_RIGHT" pageCount="10" prefHeight="52.0" prefWidth="368.0" />
+         </children>
+      </AnchorPane>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="0.0" prefWidth="1161.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="homeTable" layoutX="35.0" layoutY="113.0" prefHeight="572.0" prefWidth="1092.0">
+               <columns>
+                  <TableColumn fx:id="tc_id" prefWidth="100.0" text="记录号" />
+                  <TableColumn fx:id="tc_person_name" prefWidth="100.0" text="姓名" />
+                  <TableColumn fx:id="tc_change_name" prefWidth="100.0" text="变动类型" />
+                  <TableColumn fx:id="tc_description" prefWidth="590.0" text="描述" />
+                  <TableColumn minWidth="0.0" prefWidth="51.0" text="操作">
+                     <columns>
+                        <TableColumn fx:id="tc_edit" prefWidth="100.0" text="详细" />
+                        <TableColumn fx:id="tc_delete" prefWidth="100.0" text="删除" />
+                     </columns>
+                  </TableColumn>
+               </columns>
+            </TableView>
+            <Label layoutX="40.0" layoutY="45.0" prefHeight="35.0" text="记录号" />
+            <TextField fx:id="personId" layoutX="102.0" layoutY="45.0" prefHeight="35.0" prefWidth="100.0" />
+            <TextField fx:id="name" layoutX="279.0" layoutY="45.0" prefHeight="35.0" prefWidth="100.0" />
+            <Label layoutX="240.0" layoutY="45.0" prefHeight="35.0" text="姓名" />
+            <Label layoutX="638.0" layoutY="45.0" prefHeight="35.0" text="描述" />
+            <TextArea fx:id="description" layoutX="687.0" layoutY="39.0" prefHeight="47.0" prefWidth="191.0" />
+            <Button layoutX="908.0" layoutY="45.0" mnemonicParsing="false" onAction="#selectByCondition" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #338aee;" text="查询" textFill="WHITE" />
+            <Button layoutX="1023.0" layoutY="45.0" mnemonicParsing="false" onAction="#reset" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #e3f3ff; -fx-border-color: #338aee;" text="刷新" textFill="#4294f8" />
+            <Label layoutX="428.0" layoutY="45.0" prefHeight="35.0" text="变动类型" />
+            <ChoiceBox fx:id="changeBox" layoutX="502.0" layoutY="45.0" prefHeight="35.0" prefWidth="100.0" />
+         </children></AnchorPane>
+   </center>
+</BorderPane>

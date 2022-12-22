@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="editPersonnelMainPane" prefHeight="454.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personnel.controller.UpdatePersonnelController">
+   <center>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="676.0">
+         <children>
+            <Button layoutX="144.0" layoutY="339.0" mnemonicParsing="false" onAction="#submitUpdate" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #46A3FF;" text="更改" textFill="WHITE" />
+            <Button layoutX="400.0" layoutY="339.0" mnemonicParsing="false" onAction="#closeUpdate" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #e96151;" text="取消" textFill="WHITE" />
+            <ChoiceBox fx:id="changeBox" layoutX="448.0" layoutY="45.0" prefWidth="150.0" />
+            <TextField fx:id="personId" disable="true" layoutX="448.0" layoutY="99.0" prefWidth="150.0" />
+            <Label layoutX="377.0" layoutY="104.0" text="员工ID" />
+            <TextField fx:id="personName" disable="true" layoutX="114.0" layoutY="99.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label layoutX="370.0" layoutY="50.0" text="变动类型" />
+            <Label layoutX="60.0" layoutY="153.0" text="描述" />
+            <Label layoutX="60.0" layoutY="104.0" text="姓名" />
+            <TextArea fx:id="description" layoutX="112.0" layoutY="153.0" prefHeight="83.0" prefWidth="486.0" wrapText="true" />
+            <TextField fx:id="id" disable="true" layoutX="114.0" layoutY="45.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label layoutX="52.0" layoutY="50.0" text="记录号" />
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="48.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="599.0" layoutY="9.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #5CADAD;" text="刷新" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

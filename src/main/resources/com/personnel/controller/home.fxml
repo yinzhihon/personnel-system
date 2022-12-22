@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="homeMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="857.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personnel.controller.HomeController">
+   <top>
+      <AnchorPane prefHeight="39.0" prefWidth="900.0" style="-fx-background-color: #adb5ad;" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar layoutX="14.0" layoutY="4.0" prefHeight="32.0" prefWidth="414.0" style="-fx-background-color: #adb5ad;">
+              <menus>
+                <Menu mnemonicParsing="false" text="招聘管理">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#addPerson" text="招聘新员工" />
+                     </items></Menu>
+                <Menu mnemonicParsing="false" text="人事管理">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showPersonnelStage" text="变更记录查询" />
+                        <MenuItem mnemonicParsing="false" onAction="#showPersonChangeStage" text="人事变更" />
+                     </items></Menu>
+                <Menu mnemonicParsing="false" text="员工管理">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showPersonStage" text="员工档案" />
+                        <MenuItem mnemonicParsing="false" onAction="#showStatsStage" text="统计信息" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="部门管理">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showDepartmentStage" text="部门信息查看" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="帮助">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showStartStage" text="起始页" />
+                     </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+   </center>
+   <center>
+      <TabPane fx:id="tabPane" prefHeight="779.0" prefWidth="1161.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

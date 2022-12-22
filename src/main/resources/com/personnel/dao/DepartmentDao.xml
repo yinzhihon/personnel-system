@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.personnel.dao.DepartmentDao">
+
+    <resultMap id="departmentResultMap" type="Department">
+        <result column="manager" property="managerId"/>
+        <result column="manager_name" property="managerName"/>
+    </resultMap>
+
+
+    <select id="selectAll" resultMap="departmentResultMap">
+        select
+            d.id, d.name, d.manager , p.name manager_name, d.intro
+        from
+             t_department d, t_person p
+        where
+              d.manager = p.id;
+    </select>
+
+    <update id="updateById">
+        update t_department
+        <set>
+            <if test="managerId != null and managerId != ''">manager = #{managerId},</if>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="intro != null and intro != ''">intro = #{intro}</if>
+        </set>
+        where
+            id = #{id};
+    </update>
+
+</mapper>

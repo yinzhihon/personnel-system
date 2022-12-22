@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personnel.controller.LoginController">
+   <center>
+      <AnchorPane prefHeight="520.0" prefWidth="414.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="setUsernameField" layoutX="98.0" layoutY="171.0" prefHeight="40.0" prefWidth="328.0" promptText="username" />
+            <PasswordField fx:id="setPasswordField" layoutX="98.0" layoutY="283.0" prefHeight="40.0" prefWidth="327.0" promptText="password" />
+            <Button fx:id="closeButton" layoutX="274.0" layoutY="375.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="39.0" prefWidth="152.0" style="-fx-background-color: #e96151;" text="退出" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="submitButton" layoutX="98.0" layoutY="374.0" mnemonicParsing="false" onAction="#submitButtonAction" prefHeight="39.0" prefWidth="147.0" style="-fx-background-color: #E96151;" text="登录" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Label layoutX="97.0" layoutY="136.0" text="用户名" />
+            <Label layoutX="97.0" layoutY="240.0" text="密码" />
+            <Label fx:id="setErrorMsg" layoutX="100.0" layoutY="334.0" prefHeight="20.0" prefWidth="157.0" textFill="RED" />
+            <Label layoutX="224.0" layoutY="57.0" prefHeight="44.0" prefWidth="78.0" text="登录">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <AnchorPane prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: #e96151;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="84.0" layoutY="477.0" prefHeight="29.0" prefWidth="108.0" text="\@人事管理系统" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="72.0" layoutY="184.0" style="-fx-font-family: Song;" text="欢迎" textFill="WHITE">
+               <font>
+                  <Font size="55.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="268.0" prefHeight="29.0" prefWidth="182.0" text="登录并访问您的账号" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
